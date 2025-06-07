@@ -1,0 +1,18 @@
+version: "3.9"
+services:
+  scraper:
+    image: ghcr.io/retrosynth-ai/scraper:latest
+    restart: always
+    env_file: .env
+
+  genai:
+    image: ghcr.io/retrosynth-ai/genai:latest
+    restart: always
+    env_file: .env
+
+  prworker:
+    image: ghcr.io/retrosynth-ai/prworker:latest
+    restart: always
+    env_file: .env
+    volumes:
+      - ./cache:/cache
